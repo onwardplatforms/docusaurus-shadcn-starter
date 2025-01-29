@@ -4,6 +4,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      // This is for compatability with Docusaurus
+      "@site/*": [
+        "./*"
+      ],
+      // This is for compatability with Shadcn UI
       "@/*": [
         "./*"
       ]

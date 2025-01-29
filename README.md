@@ -362,11 +362,17 @@ update the tsconfig.json file to the following to match shadcn preference:
 
 ```
 {
+{
   // This file is not used in compilation. It is here just for a nice editor experience.
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      // This is for compatability with Docusaurus
+      "@site/*": [
+        "./*"
+      ],
+      // This is for compatability with Shadcn UI
       "@/*": [
         "./*"
       ]
@@ -379,6 +385,53 @@ update the tsconfig.json file to the following to match shadcn preference:
 }
 ```
 
+Add the `components.json` file to the project:
+
+```
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "src/index.css",
+    "baseColor": "zinc",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "iconLibrary": "lucide"
+}
+```
+
+Install shadcn ui components with the cli as normal 
+
+```
+npx shadcn@latest add button
+```
+
+You should now see the button component in the project.
+
+Finally, lets test it out by adding a button to the `src/components/HomepageFeatures/index.tsx` file.
+
+```
+function Feature({title, Svg, description}: FeatureItem) {
+  return (
+    <div className={clsx('col col--4')}>
+      <div className="text--center">
+        <Button>Click me</Button>
+      </div>
+    </div>
+  );
+}
+```
 
 Note:
 
