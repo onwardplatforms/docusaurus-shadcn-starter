@@ -357,3 +357,33 @@ export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
 } 
 ```
+
+update the tsconfig.json file to the following to match shadcn preference:
+
+```
+{
+  // This file is not used in compilation. It is here just for a nice editor experience.
+  "extends": "@docusaurus/tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  "exclude": [
+    ".docusaurus",
+    "build"
+  ]
+}
+```
+
+
+Note:
+
+When we rewrite this, just have a single command to install all depenedencies:
+
+```
+pnpm add tailwindcss-animate class-variance-authority clsx tailwind-merge lucide-react
+```
