@@ -10,7 +10,7 @@
       ],
       // This is for compatability with Shadcn UI
       "@/*": [
-        "./*"
+        "./src/*"
       ]
     }
   },
