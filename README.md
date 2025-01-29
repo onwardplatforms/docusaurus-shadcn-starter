@@ -340,3 +340,20 @@ Cool, we could use the power of tailwindcss inside docusaurus without destroying
 
 ## Part 2: Adding Shadcn UI to the project
 
+Add the `lib/utils.ts` file to the project:
+
+First install dependencies:
+```
+npm install clsx tailwind-merge
+```
+
+Now add the `lib/utils.ts` file to the project:
+
+```
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+    return twMerge(clsx(inputs))
+} 
+```
